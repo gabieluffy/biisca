@@ -25,3 +25,8 @@ public class Jogo {
                     .map(jogador -> jogador.jogarCarta(i))
                     .filter(carta -> carta != null)
                     .collect(Collectors.toList());
+           
+            if (!cartasRodada.isEmpty()) {
+                Comparator<Carta> comparadorCartas = Comparator.comparing(Carta::getNaipe)
+                        .thenComparing(carta -> -Carta.VALORES.indexOf(carta.getValor()));
+
