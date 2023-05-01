@@ -31,4 +31,11 @@ public class Jogo {
                         .thenComparing(carta -> -Carta.VALORES.indexOf(carta.getValor()));
                 
              Collections.sort(cartasRodada, comparadorCartas);
+             
+             Jogador vencedor = jogadores.stream()
+                     .filter(jogador -> jogador.getMao().contains(cartasRodada.get(cartasRodada.size() - 1)))
+                     .findFirst()
+                     .orElseThrow(() -> new RuntimeException("Não encontrou o vencedor da rodada"));
+
+             System.out.println(vencedor.getNome() + " venceu a rodada com " + cartasRodada.get(cartasRodada.size() - 1));   
 
