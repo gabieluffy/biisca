@@ -45,3 +45,6 @@ public class Jogo {
              vencedor.receberCarta(cartasVencedor.get(2));
          }
      }
+        Jogador vencedor = jogadores.stream()
+                .max(Comparator.comparingInt(jogador -> jogador.getMao().stream().mapToInt(carta -> Carta.PONTUACOES.get(carta.getValor())).sum()))
+                .orElseThrow(() -> new RuntimeException("Não encontrou o vencedor do jogo"));
