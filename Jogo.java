@@ -29,4 +29,6 @@ public class Jogo {
             if (!cartasRodada.isEmpty()) {
                 Comparator<Carta> comparadorCartas = Comparator.comparing(Carta::getNaipe)
                         .thenComparing(carta -> -Carta.VALORES.indexOf(carta.getValor()));
+                
+             Collections.sort(cartasRodada, comparadorCartas);
 
